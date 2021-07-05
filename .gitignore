@@ -1,6 +1,6 @@
-/.vscode
+.vscode
 
 
-/**.exe
+*.exe
 
-/main.cpp
+main.cpp
