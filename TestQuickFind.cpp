@@ -2,7 +2,6 @@
 //#include <cstdlib>
 #include <time.h>
 #include "UnionFind/QuickFind/QuickFind.h"
-
 void show_array(int *array, int nb_data);
 
 int main ()

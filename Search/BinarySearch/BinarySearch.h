@@ -1,6 +1,7 @@
 #ifndef BinarySearch_H
-#define BinarySearch_H
 #include <iostream>
+#define BinarySearch_H
+
 
 class BinarySearch
 {
