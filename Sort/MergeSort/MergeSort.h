@@ -5,12 +5,12 @@
 class MergeSort
 {
     private:
-        int *NumDat;
+        int *nb_data;
         int *Dir_Array;
         int *Dir_Aux;
         
     public:
-        MergeSort(int *,int *,int *);
+        MergeSort(int *Dir_array_r, int *Dir_aux_r, int *nb_data_r);
         ~MergeSort();
         void InitSort();
     

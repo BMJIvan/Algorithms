@@ -1,36 +1,36 @@
 #include "KnuthShuffle.h"
 
-KnuthShuffle::KnuthShuffle(int *DirArray,int *Datos)
+KnuthShuffle::KnuthShuffle(int *DirArray, int *Datos)
 {
     srand(time(NULL));
-    Dir_Array=DirArray;
-    NumDat=Datos;
+    Dir_Array = DirArray;
+    nb_data = Datos;
 
 }
 
 KnuthShuffle::~KnuthShuffle()
 {
-    Dir_Array=new int;
+    Dir_Array = new int;
     delete Dir_Array;
-    Dir_Array=NULL;
-    NumDat=new int;
-    delete NumDat;
-    NumDat=NULL;
+    Dir_Array = NULL;
+    nb_data = new int;
+    delete nb_data;
+    nb_data = NULL;
 }
 
 void KnuthShuffle::Shuffle()
 {
-    for(int i=0;i<*NumDat;i++)
+    for(int i = 0; i < *nb_data; i++)
     {
-        Aux=rand()%(i+1);
-        Exchange(i,Aux);
+        Aux = rand()%(i + 1);
+        Exchange(i, Aux);
     }
 }
 
-void KnuthShuffle::Exchange(int i,int j)
+void KnuthShuffle::Exchange(int i, int j)
 {
-    if(i==j) return;
-    Aux=*(Dir_Array+i);
-    *(Dir_Array+i)=*(Dir_Array+j);
-    *(Dir_Array+j)=Aux;
+    if(i == j) return;
+    Aux = Dir_Array[i];
+    Dir_Array[i] = Dir_Array[j];
+    Dir_Array[j] = Aux;
 }

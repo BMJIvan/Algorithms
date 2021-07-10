@@ -7,16 +7,16 @@ class KnuthShuffle
 {
     private:
         int *Dir_Array;
-        int *NumDat;
+        int *nb_data;
         int Aux;
 
     public:
-        KnuthShuffle(int *,int *);
+        KnuthShuffle(int *Dir_array, int *nb_data);
         ~KnuthShuffle();
         void Shuffle();
 
     private:
-        void Exchange(int,int);
+        void Exchange(int i, int j);
 };
 
 #endif

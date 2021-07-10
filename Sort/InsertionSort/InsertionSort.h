@@ -5,10 +5,10 @@ class InsertionSort
 {
     private:
         int *Dir_Array;
-        int *NumDat;
+        int *nb_data;
         int Aux;
     public:
-        InsertionSort(int *,int *);
+        InsertionSort(int *Diir_array,int *nb_data);
         ~InsertionSort();
         void InitSort();
     private:
