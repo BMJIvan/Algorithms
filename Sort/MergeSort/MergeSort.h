@@ -15,7 +15,7 @@ class MergeSort
         void InitSort();
     
     private:
-        void Merge(int,int,int);
-        void Sort(int,int);
+        void Merge(int low, int middle, int high);
+        void Sort(int low, int high);
 };
 #endif

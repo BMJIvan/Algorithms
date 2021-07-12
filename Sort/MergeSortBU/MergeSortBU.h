@@ -5,18 +5,18 @@
 class MergeSortBU
 {
     private:
-        int *NumDat;
+        int *nb_data;
         int *Dir_Array;
         int *Dir_Aux;
         
     public:
-        MergeSortBU(int *,int *,int *);
+        MergeSortBU(int *Dir_Array_r, int *Dir_Aux_r, int *nb_data_r);
         ~MergeSortBU();
         void InitSort();
 
     private:
-        void Merge(int,int,int);
-        void Sort(int,int);
+        void Merge(int low, int middle, int high);
+        void Sort(int low, int high);
 };
 #endif
 

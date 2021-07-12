@@ -1,33 +1,33 @@
 #include "QuickSort.h"
 
 
-QuickSort::QuickSort(int *DirArray,int *Datos)
+QuickSort::QuickSort(int *Dir_Array_r, int *nb_data_r)
 {
-    Dir_Array=DirArray;
-    NumDat=Datos;
+    Dir_Array = Dir_Array_r;
+    nb_data = nb_data_r;
 }
 
 QuickSort::~QuickSort()
 {
-    Dir_Array=new int;
+    Dir_Array = new int;
     delete Dir_Array;
-    Dir_Array=NULL;
-    NumDat=new int;
-    delete NumDat;
-    NumDat=NULL;}
+    Dir_Array = NULL;
+    nb_data = new int;
+    delete nb_data;
+    nb_data = NULL;}
 
-int QuickSort::Partition(int low,int high)
+int QuickSort::Partition(int low, int high)
 {
-    int i=low;
-    int j=high+1;
+    int i = low;
+    int j = high + 1;
     while(true)
     {
-        while(*(Dir_Array+(++i))-*(Dir_Array+low)<0) 
+        while(*(Dir_Array+(++i)) - *(Dir_Array+low) < 0) 
         {   
-            if(i==high) break;
+            if(i == high) break;
         }
 
-        while(*(Dir_Array+low)-*(Dir_Array+(--j))<0)
+        while(*(Dir_Array+low) - *(Dir_Array+(--j)) < 0)
         {
             if(j==low) break;
         }    
@@ -64,5 +64,5 @@ void QuickSort::Exchange(int i,int j)
 
 void QuickSort::InitSort()
 {
-    Sort(0,*NumDat-1);
+    Sort(0,*nb_data-1);
 }

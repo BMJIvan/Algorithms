@@ -6,16 +6,16 @@ class QuickSort
 {
     private:
         int *Dir_Array;
-        int *NumDat;
+        int *nb_data;
         int Aux;
     public:
-        QuickSort(int *,int *);
+        QuickSort(int *Dir_array_r,int *nb_data_r);
         ~QuickSort();
         void InitSort();
     private:
-        int Partition(int,int);
-        void Exchange(int,int);
-        void Sort(int,int);
+        int Partition(int low, int high);
+        void Exchange(int , int);
+        void Sort(int , int);
 };
 
 #endif
