@@ -1,9 +1,9 @@
 #include "InsertionSort.h"
 
-InsertionSort::InsertionSort(int *DirArray,int *Datos)
+InsertionSort::InsertionSort(int *DirArray,int nb_data_r)
 {
     Dir_Array = DirArray;
-    nb_data = Datos;
+    nb_data = nb_data_r;
 }
 
 InsertionSort::~InsertionSort()
@@ -11,23 +11,20 @@ InsertionSort::~InsertionSort()
     Dir_Array = new int;
     delete Dir_Array;
     Dir_Array = NULL;
-    nb_data = new int;
-    delete nb_data;
-    nb_data = NULL;
 }
 
-void InsertionSort::InitSort()
+void InsertionSort::InitSort(bool ascendant)
 {
-    Sort();
+    Sort(ascendant ? 1 : -1);
 }
 
-void InsertionSort::Sort()
+void InsertionSort::Sort(int ascendant)
 {
-    for(int i = 0; i < *nb_data; i++)
+    for(int i = 0; i < nb_data; i++)
     {
         for(int j = i; j > 0; j--)
         {
-            if(Dir_Array[j] - Dir_Array[j-1] < 0)
+            if(Dir_Array[j]*ascendant < Dir_Array[j-1]*ascendant)
             {
                 Exchange(j, j-1);
             }   

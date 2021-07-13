@@ -1,16 +1,16 @@
-#ifndef InsertionSort_H
-#define InsertionSort_H
+#ifndef ShellSort_H
+#define ShellSort_H
 #include <cstdlib>
 
-class InsertionSort
+class ShellSort
 {
     private:
         int *Dir_Array;
         int nb_data;
         int Aux;
     public:
-        InsertionSort(int *Dir_array, int nb_data_r);
-        ~InsertionSort();
+        ShellSort(int *Dir_array, int nb_data_r);
+        ~ShellSort();
         void InitSort(bool ascendent);
     private:
         void Sort(int ascendent);

@@ -15,16 +15,7 @@ SelectionSort::~SelectionSort()
 
 void SelectionSort::InitSort(bool ascendant)
 {
-    if (ascendant)
-    {
-        Sort(1);
-    }
-    else
-    {
-        Sort(-1);
-    }
-
-    
+    Sort(ascendant ? 1 : -1);
 }
 
 void SelectionSort::Sort(int ascendant)

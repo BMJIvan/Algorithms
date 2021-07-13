@@ -1,10 +1,10 @@
 #include "KnuthShuffle.h"
 
-KnuthShuffle::KnuthShuffle(int *DirArray, int *Datos)
+KnuthShuffle::KnuthShuffle(int *DirArray, int nb_data_r)
 {
     srand(time(NULL));
     Dir_Array = DirArray;
-    nb_data = Datos;
+    nb_data = nb_data_r;
 
 }
 
@@ -13,14 +13,11 @@ KnuthShuffle::~KnuthShuffle()
     Dir_Array = new int;
     delete Dir_Array;
     Dir_Array = NULL;
-    nb_data = new int;
-    delete nb_data;
-    nb_data = NULL;
 }
 
 void KnuthShuffle::Shuffle()
 {
-    for(int i = 0; i < *nb_data; i++)
+    for(int i = 0; i < nb_data; i++)
     {
         Aux = rand()%(i + 1);
         Exchange(i, Aux);
