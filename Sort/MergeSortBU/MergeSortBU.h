@@ -2,21 +2,22 @@
 #define MergeSortBU_H
 #include <cstdlib>
 
-class MergeSortBU
+class MergeSortBU //Bottom-up
 {
     private:
         int *nb_data;
-        int *Dir_Array;
-        int *Dir_Aux;
+        int *Array;
+        int *Aux;
+        int ascendant;
         
     public:
-        MergeSortBU(int *Dir_Array_r, int *Dir_Aux_r, int *nb_data_r);
+        MergeSortBU(int *Array_r, int *Aux_r, int *nb_data_r);
         ~MergeSortBU();
-        void InitSort();
+        void InitSort(bool ascendant);
 
     private:
         void Merge(int low, int middle, int high);
-        void Sort(int low, int high);
+        void Sort();
 };
 #endif
 
