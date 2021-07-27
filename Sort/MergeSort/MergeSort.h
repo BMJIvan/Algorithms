@@ -1,18 +1,24 @@
 #ifndef MergeSort_H
 #define MergeSort_H
 #include <cstdlib>
+#include "InsertionSort.h"
 
-class MergeSort
+class MergeSort: protected InsertionSort
 {
     private:
         int *nb_data;
-        int *Dir_Array;
-        int *Dir_Aux;
+        int *Array;
+        int *Aux;
         
+        int CUTOFF; 
+        InsertionSort InSort;
+        int ascendant;
+
     public:
-        MergeSort(int *Dir_array_r, int *Dir_aux_r, int *nb_data_r);
+        MergeSort(int *Array_r, int *Aux_r, int *nb_data_r);
+        MergeSort(int *Array_r, int *Aux_r, int *nb_data_r, int *CUTOFF_r);
         ~MergeSort();
-        void InitSort();
+        void InitSort(bool ascendant_bool);
     
     private:
         void Merge(int low, int middle, int high);
