@@ -13,7 +13,7 @@ int main ()
     unsigned t0 = 0, t1 = 0;
     double Time;
     int nb_data = 30;
-    int array[nb_data] = {};
+    int array[30] = {};
     
     for (int i = 0; i < nb_data; i++)
     {
