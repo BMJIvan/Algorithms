@@ -1,58 +1,59 @@
-#include "QuickSort3way.h"
+#include "QuickSort3Way.h"
 
-QuickSort3way::QuickSort3way(int *DirArray,int *Datos)
+QuickSort3Way::QuickSort3Way(int *Array_r,int *nb_data_r)
 {
-    Dir_Array=DirArray;
-    NumDat=Datos;
+    Array = Array_r;
+    nb_data = nb_data_r;
 }
 
-QuickSort3way::~QuickSort3way()
+QuickSort3Way::~QuickSort3Way()
 {
-    Dir_Array=new int;
-    delete Dir_Array;
-    Dir_Array=NULL;
-    NumDat=new int;
-    delete NumDat;
-    NumDat=NULL;
+    Array=new int;
+    delete Array;
+    Array=NULL;
+    nb_data=new int;
+    delete nb_data;
+    nb_data=NULL;
 }
 
-void QuickSort3way::Sort(int low,int high)
+void QuickSort3Way::Sort(int low,int high)
 {
     if(high<=low)   return;
-    Auxl=low;
-    Auxh=high;
-    AuxV=*(Dir_Array+low);
-    Auxi=low;
+    Auxlow = low;
+    Auxhigh = high;
+    value = Array[low];
+    index = low;
 
-    while(Auxi<=Auxh)
+    while(index <= Auxhigh)
     {
-        AuxCmp=Compare(AuxV,*(Dir_Array+Auxi));
-        if      (AuxCmp<0)  Exchange(Auxl++,Auxi++);
-        else if (AuxCmp>0)  Exchange(Auxi,Auxh--);
-        else    Auxi++;
+        compare = Compare(value, Array[index]);
+        if      (compare < 0)  Exchange(Auxlow++, index++);
+        else if (compare > 0)  Exchange(index , Auxhigh--);
+        else    index++;
     }
 
-    Sort(low,Auxl-1);
-    Sort(Auxh+1,high);
+    Sort(low, Auxlow - 1);
+    Sort(Auxhigh + 1, high);
 }
 
-void QuickSort3way::Exchange(int i,int j)
+void QuickSort3Way::Exchange(int i, int j)
 {
     if(i==j) return;
-    Aux=*(Dir_Array+i);
-    *(Dir_Array+i)=*(Dir_Array+j);
-    *(Dir_Array+j)=Aux;
+    Aux = Array[i];
+    Array[i] = Array[j];
+    Array[j] = Aux;
 }
 
-void QuickSort3way::InitSort()
+void QuickSort3Way::InitSort(bool ascendant_bool)
 {
-    Sort(0,*NumDat-1);
+    ascendant = ascendant_bool == true ? 1 : -1;
+    Sort(0,*nb_data-1);
 }
 
-int QuickSort3way::Compare(int i,int j)
+int QuickSort3Way::Compare(int i,int j)
 {
-    if(i==j) return 0;
-    return 1*(i<j)-1*(i>j);
+    if(i == j) return 0;
+    return ascendant*(i < j) - ascendant*(i > j);
 }
 
 

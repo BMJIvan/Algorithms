@@ -1,26 +1,27 @@
-#ifndef QuickSort3way_H
-#define QuickSort3way_H
+#ifndef QuickSort3Way_H
+#define QuickSort3Way_H
 #include <cstdlib>
 
-class QuickSort3way
+class QuickSort3Way
 {
     private:
-        int *Dir_Array;
-        int *NumDat;
+        int *Array;
+        int *nb_data;
         int Aux;
-        int Auxi;
-        int Auxl;
-        int Auxh;
-        int AuxV;
-        int AuxCmp;
+        int index;
+        int Auxlow;
+        int Auxhigh;
+        int value;
+        int compare;
+        int ascendant;
     public:
-        QuickSort3way(int *,int *);
-        ~QuickSort3way();
-        void InitSort();
+        QuickSort3Way(int *Array,int *nb_data);
+        ~QuickSort3Way();
+        void InitSort(bool ascendant_bool);
     private:
-        void Exchange(int,int);
-        void Sort(int,int);
-        int Compare(int,int);
+        void Exchange(int, int);
+        void Sort(int, int);
+        int Compare(int, int);
 };
 
 #endif
