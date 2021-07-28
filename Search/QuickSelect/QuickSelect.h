@@ -4,21 +4,22 @@
 class QuickSelect
 {
     private:
-        int *Dir_Array;
-        int *Dir_Aux;
-        int *NumDat;
+        int *Array;
         int Aux;
+        int *nb_data;
+        int ascendant;
+
     public:
-        QuickSelect(int *Dir_Array, int *Dir_Aux, int *NumDat);
+        QuickSelect(int *Array, int *nb_data_r);
         ~QuickSelect();
         int Min();
         int Min(int);
         int Max();
         int Max(int);
     private:
-        int Partition(int , int , int);
+        int Partition(int low, int high);
         void Exchange(int , int);
-        void Select(int , int);
+        void Select(int k);
 };
 
 #endif

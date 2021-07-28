@@ -1,74 +1,62 @@
 #include "QuickSelect.h"
 
-QuickSelect::QuickSelect(int *DirArray, int *DirAux, int *Datos)
+QuickSelect::QuickSelect(int *Array_r, int *Datos)
 {
-    Dir_Array = DirArray;
-    Dir_Aux = DirArray;
-    NumDat = Datos;
-    for(int i=0; i <* NumDat; i++)
-    {
-        Dir_Aux[i] = Dir_Aux[i];
-    }
+    Array = Array_r;
+    nb_data = Datos;
+    for(int i=0; i < *nb_data; i++)     Array[i] = Array[i];
 }
 
 QuickSelect::~QuickSelect()
 {
-    Dir_Array = new int;
-    delete Dir_Array;
-    Dir_Array = NULL;
-    NumDat = new int;
-    delete NumDat;
-    NumDat = NULL;
-    Dir_Aux = new int;
-    delete Dir_Aux;
-    Dir_Aux = nullptr;
+    Array = new int;
+    delete Array;
+    Array = NULL;
+    nb_data = new int;
+    delete nb_data;
+    nb_data = NULL;
 }
 
-int QuickSelect::Partition(int low, int high, int S)
+int QuickSelect::Partition(int low, int high)
 {
     int i = low;
     int j = high+1;
     while(true)
     {
-        while(S*(*(Dir_Aux+(++i))-*(Dir_Aux+low))<0) 
+        while(Array[++i]*ascendant - Array[low]*ascendant < 0) 
         {   
             if(i == high) break;
         }
 
-        while(S*(*(Dir_Aux+low)-*(Dir_Aux+(--j)))<0)
+        while(Array[low]*ascendant - Array[--j]*ascendant < 0)
         {
             if(j == low) break;
         }    
 
         if(i >= j) break;
-
         Exchange(i, j);
     }
-    Exchange(low, j);
-    /*if(S==1) j=low revisar*/	
+    Exchange(low, j);	
     return j;
 }
 
 void QuickSelect::Exchange(int i,int j)
 {
     if(i == j) return;
-    Aux = Dir_Array[i];
-    Dir_Array[i] = Dir_Array[j];
-    Dir_Array[j] = Aux;
-    /*if(a==b) return;
-    *(Dir_Array+a)-=*(Dir_Array+b);
-    *(Dir_Array+b)+=*(Dir_Array+a);
-    *(Dir_Array+a)=*(Dir_Array+b)-*(Dir_Array+a);*/     
+    Aux = Array[i];
+    Array[i] = Array[j];
+    Array[j] = Aux;
+      
 }
 
-void QuickSelect::Select(int k,int S)
+void QuickSelect::Select(int k)
 {
     int j;
     int low = 0;
-    int high = *NumDat-1;
+    int high = *nb_data-1;
     while(high > low)
     {
-        j=Partition(low, high, S);
+        j = Partition(low, high);
         if      (j < k) low = j+1;
         else if (j > k) high = j-1;
         else            return;
@@ -78,24 +66,28 @@ void QuickSelect::Select(int k,int S)
 
 int QuickSelect::Min(int k)
 {
-    Select(k-1, 1);
-    return *(Dir_Aux+k-1);
+    ascendant = 1;
+    Select(k-1);
+    return Array[k-1];
 }
 
 int QuickSelect::Max(int k)
 {
-    Select(k-1, -1);
-    return *(Dir_Aux+k-1);
+    ascendant = -1;
+    Select(k-1);
+    return Array[k-1];
 }
 
 int QuickSelect::Min()
 {
-    Select(0,1);
-    return *(Dir_Aux);
+    ascendant = 1;
+    Select(0);
+    return Array[0];
 }
 
 int QuickSelect::Max()
 {
-    Select(0,-1);
-    return *(Dir_Aux);
+    ascendant = -1;
+    Select(0);
+    return Array[0];
 }
