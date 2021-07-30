@@ -1,0 +1,43 @@
+#include <iostream>
+#include <time.h>
+#include <math.h>
+#include "Sort/HeapSort/HeapSort.h" 
+
+void show_array(int *array, int nb_data);
+
+int main ()
+{
+    //head
+    srand(time(NULL));
+    unsigned t0 = 0, t1 = 0;
+    double Time;
+    int nb_data = 30;
+    int array[30] = {};
+    
+    for (int i = 0; i < nb_data; i++)   array[i]=nearbyint(rand()%(nb_data*5));
+    HeapSort Srt(array, nb_data);
+   
+    //body
+    t0=clock();
+    std::cout<<std::endl<<"inicio programa"<<std::endl;
+    show_array(array, nb_data);
+
+    std::cout<<std::endl<<"HeapSort ascendant"<<std::endl;
+    Srt.InitSort(true);
+    show_array(array, nb_data);
+
+    std::cout<<std::endl<<"HeapSort descendant"<<std::endl;
+    Srt.InitSort(false);
+    show_array(array, nb_data);
+    
+    t1=clock();
+    Time=(double(t1-t0)/CLOCKS_PER_SEC)*1000;
+    std::cout<<std::endl<<"Time: "<<Time<<std::endl;
+    //system("Pause");
+    return 0;   
+}
+
+void show_array(int *array, int nb_data){
+    for(int i = 0; i < nb_data; i++)    std::cout<<array[i]<<",";
+    std::cout<<std::endl;
+};
