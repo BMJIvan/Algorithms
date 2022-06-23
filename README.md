@@ -1,6 +1,6 @@
 ### Algorithms
 
-Realicé estos ejercicios de un curso de algoritmos de Coursera, el cual fue realizado en Java; sin embargo, los rescribí con C++
+I did these exercises from a Coursera algorithms course, which was done in Java; however, I rewrote them to C++
 
 [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1#syllabus "Algorithms, Part I")
 
